@@ -1,38 +1,54 @@
 //{ Driver Code Starts
 //Initial Template for Java
 
-import java.io.*;
 import java.util.*;
+import java.lang.*;
+import java.io.*;
 
 class GFG {
-    public static void main(String args[]) throws IOException {
-        BufferedReader read =
+	public static void main(String[] args) throws IOException
+	{
+	        BufferedReader br =
             new BufferedReader(new InputStreamReader(System.in));
-        int t = Integer.parseInt(read.readLine());
-        while (t-- > 0) {
-            String s = read.readLine();
+        int t =
+            Integer.parseInt(br.readLine().trim()); // Inputting the testcases
+        while(t-->0)
+        {
+            long n = Long.parseLong(br.readLine().trim());
+            long a[] = new long[(int)(n)];
+            // long getAnswer[] = new long[(int)(n)];
+            String inputLine[] = br.readLine().trim().split(" ");
+            for (int i = 0; i < n; i++) {
+                a[i] = Long.parseLong(inputLine[i]);
+            }
             
-            Solution ob = new Solution();
-            String result = ob.removeCharacters(s);
+            Solution obj = new Solution();
+            System.out.println(obj.firstIndex(a, n));
             
-            System.out.println(result);
         }
-    }
+	}
 }
+
 // } Driver Code Ends
 
 
 //User function Template for Java
 
+
 class Solution {
-    String removeCharacters(String S) {
-        // code here
-        String s ="";
-        for (int i = 0 ; i < S.length() ; i++){
-            if(S.charAt(i)>='0'&&S.charAt(i)<='9'){
-                s += S.charAt(i);
+    
+    public long firstIndex(long arr[], long n)
+    {
+        // Your code goes here
+        boolean flag = false;
+        for(int i = 0 ; i < n ; i++){
+            if(arr[i]==1){
+                return i;
+            }
+            else{
+                continue;
             }
         }
-        return s;
+        return -1;
     }
 }
