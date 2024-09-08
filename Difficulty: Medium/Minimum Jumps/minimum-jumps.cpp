@@ -1,16 +1,17 @@
 //{ Driver Code Starts
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 
 // } Driver Code Ends
 // Function to return minimum number of jumps to end of array
 
-class Solution{
+class Solution {
   public:
-    int minJumps(int arr[], int n){
+    int minJumps(vector<int>& arr) {
         // Your code here
         int c = 0;
+        int n = arr.size();
         int curr = arr[0];
         int maxReach = arr[0];
         int res = 1;
@@ -42,19 +43,23 @@ class Solution{
 
 //{ Driver Code Starts.
 
-int main()
-{
+int main() {
     int t;
-    cin>>t;
-    while(t--)
-    {
-        int n,i,j;
-        cin>>n;
-        int arr[n];
-        for(int i=0; i<n; i++)
-            cin>>arr[i];
+    cin >> t;
+    cin.ignore();
+    while (t--) {
+        int n, i, j;
+        vector<int> arr;
+        string ip;
+        int number;
+        getline(cin, ip);
+        stringstream ss(ip);
+
+        while (ss >> number) {
+            arr.push_back(number);
+        }
         Solution obj;
-        cout<<obj.minJumps(arr, n)<<endl;
+        cout << obj.minJumps(arr) << endl;
     }
     return 0;
 }
