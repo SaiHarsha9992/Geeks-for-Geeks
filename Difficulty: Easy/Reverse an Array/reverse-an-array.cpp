@@ -6,19 +6,16 @@ using namespace std;
 // } Driver Code Ends
 class Solution {
   public:
+    void addfuc(int i, vector<int> &arr, int n){
+        if (i >= n/2){
+            return;
+        }
+        swap(arr[i], arr[n - i - 1]);
+        addfuc(i+1, arr, n);
+    }
     void reverseArray(vector<int> &arr) {
         // code here
-        int start = 0;
-        int n = arr.size();
-        int end = n-1;
-    
-        
-        while(start <= end){
-            swap(arr[start],arr[end]);
-            start++;
-            end--;
-            
-        }
+        addfuc(0, arr, arr.size());    
     }
 };
 
