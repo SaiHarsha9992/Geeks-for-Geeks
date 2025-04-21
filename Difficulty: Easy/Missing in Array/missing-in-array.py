@@ -1,16 +1,10 @@
-#User function Template for python3
 class Solution:
-    
-    # Note that the size of the array is n-1
-    def missingNumber(self, n, arr):
-        
+    def missingNum(self, arr):
         # code here
-        asum = sum(arr)
-        
-        ssum = sum(range(1,n+1))
-        
-        return ssum-asum
-
+        n=len(arr)+1
+        real_sum=(n*(n+1))//2
+        sum_arr=sum(arr)
+        return real_sum-sum_arr
 
 #{ 
  # Driver Code Starts
@@ -18,9 +12,9 @@ class Solution:
 
 t = int(input())
 for _ in range(0, t):
-    n = int(input())
     arr = list(map(int, input().split()))
-    s = Solution().missingNumber(n, arr)
+    s = Solution().missingNum(arr)
     print(s)
 
+    print("~")
 # } Driver Code Ends
